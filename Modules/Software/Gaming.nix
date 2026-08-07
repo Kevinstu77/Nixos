@@ -12,6 +12,8 @@ in
   };
 
   config = mkIf cfg.enable {
+
+    #steam setup
     programs.steam = {
       enable = true;
       extraPackages = with pkgs; [
@@ -22,10 +24,13 @@ in
       ];
     };
 
+    #system pkgs
     environment.systemPackages = with pkgs; [
       prismlauncher
+      discord
     ];
 
+    #declaritive flatpak
     services.flatpak = {
       enable = true;
       remotes = [
@@ -39,7 +44,7 @@ in
       ];
   };
 
-
+    #other settings
     programs.gamemode.enable = true;
 
   };
