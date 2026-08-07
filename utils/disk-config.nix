@@ -2,6 +2,7 @@
   disko.devices = {
     disk = {
       my-disk = {
+        #replace with name of drive
         device = "/dev/nvme0n1";
         type = "disk";
         content = {
