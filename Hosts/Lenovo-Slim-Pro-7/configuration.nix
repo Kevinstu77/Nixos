@@ -12,8 +12,8 @@
   #pkgs
   myConfig.gaming.enable = true;
   myConfig.Record.enable = true;
-  #services
 
+  #services
   myConfig.local.enable = true;
   myConfig.audio.enable = true;
   myConfig.KDE.enable = true;
@@ -30,7 +30,6 @@
   nixpkgs.config.allowUnfree = true;
   #features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
