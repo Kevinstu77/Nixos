@@ -12,6 +12,7 @@
   myConfig.local.enable = true;
   myConfig.audio.enable = true;
   myConfig.KDE.enable = true;
+  myConfig.Record.enable = true;
   myConfig.GpuDrivers = {
     enable = true;
     optimus = {

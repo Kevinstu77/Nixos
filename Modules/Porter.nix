@@ -5,5 +5,6 @@
     ./Services/Audio.nix
     ./Software/DE/KDE.nix
     ./Services/GpuDrivers.nix
+    ./Software/Recording.nix
   ];
 }
