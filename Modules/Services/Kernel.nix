@@ -13,6 +13,8 @@ in
 
   config = mkIf cfg.enable {
 
+    boot.kernelParams = [ "amdgpu.dcdebugmask=0x10" ];
+
     nix.settings = {
       substituters = [ "https://attic.xuyh0120.win/lantian" ];
       trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
