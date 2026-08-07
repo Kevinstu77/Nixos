@@ -27,7 +27,7 @@ in
     #system pkgs
     environment.systemPackages = with pkgs; [
       prismlauncher
-      discord
+      vesktop
     ];
 
     #declaritive flatpak
