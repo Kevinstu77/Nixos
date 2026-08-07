@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    greyline.url = "github:cothinking-dev/greyline";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
   };
 
