@@ -8,11 +8,16 @@
     ];
 
   #activate toggles
+
+  #pkgs
   myConfig.gaming.enable = true;
+  myConfig.Record.enable = true;
+  #services
+
   myConfig.local.enable = true;
   myConfig.audio.enable = true;
   myConfig.KDE.enable = true;
-  myConfig.Record.enable = true;
+  myConfig.Kernel.enable = true;
   myConfig.GpuDrivers = {
     enable = true;
     optimus = {
@@ -30,7 +35,6 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   networking.hostName = "colbyslim"; # Define your hostname.
 

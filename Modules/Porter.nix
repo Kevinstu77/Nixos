@@ -6,5 +6,6 @@
     ./Software/DE/KDE.nix
     ./Services/GpuDrivers.nix
     ./Software/Recording.nix
+    ./Services/Kernel.nix
   ];
 }
