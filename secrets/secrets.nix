@@ -1,6 +1,6 @@
 let
-  colbyslim = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILTBz7V/hSj4BGu4Li2gv6bRI9voy2unjpThNom5lb3P root@colbyslim";
+  Lenovo-Slim-Pro-7 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKHZLWSFB3lHTzJ96T12czsPv5DVMU2MFDEABavhdHXb root@Lenovo-Slim-Pro-7";
 in
 {
-  "colbys-password.age".publicKeys = [ colbyslim ];
+  "colbys-password.age".publicKeys = [ Lenovo-Slim-Pro-7 ];
 }
