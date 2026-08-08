@@ -19,6 +19,17 @@
           })
         ];
       };
+
+      colbythick = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./Hosts/Lenovo-Slim-Pro-7/configuration.nix
+          nix-flatpak.nixosModules.nix-flatpak
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
+          })
+        ];
+      };
     };
   };
 }
