@@ -66,6 +66,7 @@
     git
     pkgs.mission-center
     s-tui
+    gh
   ];
 
   #secret
