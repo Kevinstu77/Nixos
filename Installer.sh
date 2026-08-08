@@ -3,12 +3,16 @@ clear
 
 #questions
 lsblk
+echo ""
 read -p "What is the name of your storage device?" storage
 clear
+echo ""
 read -p "What is the computer's name?" compname
 clear
+echo ""
 read -p "What is your user name?" username
 clear
+echo ""
 read -p "What will your temp password be?" tempass
 
 #vars
