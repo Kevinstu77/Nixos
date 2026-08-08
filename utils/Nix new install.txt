@@ -16,3 +16,9 @@ mkdir -p /tmp/Nixproject/Hosts/NewLaptopName
 cp /mnt/etc/nixos/hardware-configuration.nix /tmp/Nixproject/Hosts/NewLaptopName/
 cp /tmp/Nixproject/Hosts/Lenovo-Slim-Pro-7/configuration.nix /tmp/Nixproject/Hosts/NewLaptopName/configuration.nix
 # edit configuration.nix: hostname, GPU modules, etc.
+
+install
+
+cd /tmp/Nixproject
+git add .
+sudo nixos-install --root /mnt --flake /tmp/Nixproject#newlaptopname
