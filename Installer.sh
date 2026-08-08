@@ -31,7 +31,7 @@ mkdir -p "$TARGET_DIR/Hosts/$compname/"
 
 #hardware config
 echo "generating hardware config..."
-nixos-generate-config --no-filesystems --root /mnt
+nixos-generate-config --root /mnt
 cp "/mnt/etc/nixos/hardware-configuration.nix" "$TARGET_DIR/Hosts/$compname/"
 
 #Main config
