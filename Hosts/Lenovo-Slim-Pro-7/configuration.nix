@@ -63,6 +63,8 @@
   environment.systemPackages = with pkgs; [
     kdePackages.kate
     git
+    pkgs.mission-center
+    s-tui
   ];
 
   system.stateVersion = "26.05";
