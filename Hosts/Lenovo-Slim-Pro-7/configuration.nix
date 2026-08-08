@@ -35,7 +35,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "colbyslim"; # Define your hostname.
+  networking.hostName = "Lenovo-Slim-Pro-7"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;

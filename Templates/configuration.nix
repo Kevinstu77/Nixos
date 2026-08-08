@@ -8,7 +8,6 @@
     ];
 
   #activate toggles
-
   #pkgs
   myConfig.gaming.enable = true;
   myConfig.Record.enable = true;
@@ -35,7 +34,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "colbyslim"; # Define your hostname.
+  networking.hostName = "hostNameVar"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -44,9 +43,10 @@
   services.printing.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."colbys" = {
+  users.users."userNameVar" = {
     isNormalUser = true;
     description = "Colby Stults";
+    initialPassword = "tempPassVar";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     ];
@@ -67,6 +67,9 @@
     pkgs.mission-center
     s-tui
   ];
+
+  #secret
+  #age.secrets.colbys-password.file = ../../secrets/colbys-password.age;
 
   system.stateVersion = "26.05";
 

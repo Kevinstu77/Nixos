@@ -12,33 +12,35 @@
     };
   };
 
-  outputs = { self, nixpkgs, nix-flatpak, nix-cachyos-kernel, disko, agenix, ... }: {
-    nixosConfigurations = {
-      colbyslim = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./Hosts/Lenovo-Slim-Pro-7/configuration.nix
-          nix-flatpak.nixosModules.nix-flatpak
-          agenix.nixosModules.default
-          ({ pkgs, ... }: {
-            nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
-          })
-        ];
-      };
+  outputs = { self, nixpkgs, nix-flatpak, nix-cachyos-kernel, disko, agenix, ... }:
+  let
+    system = "x86_64-linux";
 
-      colbythick = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./Hosts/Hp-Omen-16-Max/configuration.nix
-          ./Hosts/Hp-Omen-16-Max/disk-config.nix
-          nix-flatpak.nixosModules.nix-flatpak
-          disko.nixosModules.disko
-          agenix.nixosModules.default
-          ({ pkgs, ... }: {
-            nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
-          })
-        ];
-      };
+    # 1. Automatically scan the ./Hosts directory
+    hostsDir = ./Hosts;
+
+    # 2. Extract only the folder names (ignoring loose files)
+    hostNames = builtins.attrNames (
+      nixpkgs.lib.filterAttrs (name: type: type == "directory") (builtins.readDir hostsDir)
+    );
+
+    # 3. Automatically generate a nixosConfiguration for every folder found
+    mkHost = hostname: nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        # Automatically points to /Hosts/<your-computer-name>/configuration.nix
+        (hostsDir + "/${hostname}/configuration.nix")
+
+        disko.nixosModules.disko
+        nix-flatpak.nixosModules.nix-flatpak
+        agenix.nixosModules.default
+        ({ pkgs, ... }: {
+          nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
+        })
+      ];
     };
+  in {
+    # 4. Map the generator function across all discovered host folders
+    nixosConfigurations = nixpkgs.lib.genAttrs hostNames mkHost;
   };
 }
