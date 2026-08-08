@@ -15,6 +15,9 @@ make new host
 cp /mnt/etc/nixos/hardware-configuration.nix /tmp/Nixproject/Hosts/NewLaptopName/
 # edit configuration.nix: hostname, GPU modules, etc.
 
+temp password
+initialPassword = "changeme123";
+
 install
 
 cd /tmp/Nixproject
