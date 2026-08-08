@@ -20,3 +20,10 @@ install
 cd /tmp/Nixproject
 git add .
 sudo nixos-install --root /mnt --flake /tmp/Nixproject#newlaptopname
+
+
+after
+
+nix-shell -p git --run "git clone https://github.com/Kevinstu77/Nixos.git ~/Nixproject"
+
+sudo nixos-rebuild switch --flake ~/Nixproject#pcname

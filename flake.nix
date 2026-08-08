@@ -8,6 +8,7 @@
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nix-flatpak, nix-cachyos-kernel, disko, ... }: {
@@ -29,6 +30,7 @@
           ./Hosts/Hp-Omen-16-Max/configuration.nix
           ./Hosts/Hp-Omen-16-Max/disk-config.nix
           nix-flatpak.nixosModules.nix-flatpak
+          disko.nixosModules.disko
           ({ pkgs, ... }: {
             nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
           })
