@@ -45,6 +45,9 @@ sed -i "s/userNameVar/$username/g" "$TARGET_DIR/Hosts/$compname/configuration.ni
 echo "Fixing file permissions..."
 chown -R 1000:100 "$TARGET_DIR"
 
+# Tell git that root is allowed to read this repo during install
+sudo git config --global --add safe.directory "$TARGET_DIR"
+
 #Final install
 git -C "$TARGET_DIR" add .
 sudo nixos-install --root /mnt --flake "$TARGET_DIR#$compname"
