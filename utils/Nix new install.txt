@@ -4,7 +4,7 @@ nix-shell -p git --run "git clone https://github.com/Kevinstu77/Nixos.git /tmp/N
 
 use disko
 
-sudo nix run github:nix-community/disko -- --mode disko /tmp/Nixproject/utils/disk-config.nix
+sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko /tmp/Nixproject/utils/disk-config.nix
 
 generate hardware conf
 

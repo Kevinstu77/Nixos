@@ -55,6 +55,7 @@
 
   #Enable Services
   services.flatpak.enable = true;
+  services.openssh.enable = true;
 
   #Enable programs
   programs.firefox.enable = true;

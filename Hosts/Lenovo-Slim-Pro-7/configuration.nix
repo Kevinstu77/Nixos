@@ -47,6 +47,7 @@
   users.users."colbys" = {
     isNormalUser = true;
     description = "Colby Stults";
+    hashedPasswordFile = config.age.secrets.colbys-password.path;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     ];
@@ -55,6 +56,7 @@
 
   #Enable Services
   services.flatpak.enable = true;
+  services.openssh.enable = true;
 
   #Enable programs
   programs.firefox.enable = true;
@@ -66,6 +68,9 @@
     pkgs.mission-center
     s-tui
   ];
+
+  #secret
+  age.secrets.colbys-password.file = ../../secrets/colbys-password.age;
 
   system.stateVersion = "26.05";
 
