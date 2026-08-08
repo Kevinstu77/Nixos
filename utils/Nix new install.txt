@@ -4,7 +4,7 @@ nix-shell -p git --run "git clone https://github.com/Kevinstu77/Nixos.git /tmp/N
 
 use disko
 
-sudo nix run github:nix-community/disko -- --mode disko /tmp/Nixproject/<your-disko-file>.nix
+sudo nix run github:nix-community/disko -- --mode disko /tmp/Nixproject/utils/disk-config.nix
 
 generate hardware conf
 
@@ -12,9 +12,7 @@ sudo nixos-generate-config --no-filesystems --root /mnt
 
 make new host
 
-mkdir -p /tmp/Nixproject/Hosts/NewLaptopName
 cp /mnt/etc/nixos/hardware-configuration.nix /tmp/Nixproject/Hosts/NewLaptopName/
-cp /tmp/Nixproject/Hosts/Lenovo-Slim-Pro-7/configuration.nix /tmp/Nixproject/Hosts/NewLaptopName/configuration.nix
 # edit configuration.nix: hostname, GPU modules, etc.
 
 install
