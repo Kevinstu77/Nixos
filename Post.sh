@@ -1,22 +1,17 @@
 #!/usr/bin/env bash
+set -euo pipefail
 clear
 
-#Detect computer name
 compname=$(hostname)
 echo "Configuring for host: $compname"
 
-#generate SSH key
-read -p "What is your identifier?" Identifier
-ssh-keygen -t ed25519 -C "$Identifier"
+if [ -f ~/.ssh/id_ed25519 ]; then
+  echo "SSH key already exists at ~/.ssh/id_ed25519, skipping generation."
+else
+  read -p "What is your identifier? " Identifier
+  ssh-keygen -t ed25519 -C "$Identifier"
+fi
 
-#login to github
-gh auth login
-gh ssh-key add ~/.ssh/id_ed25519.pub --title "$(hostname)-key"
-
-
-#Push to github
-cd ~/Nixproject || exit 1
-git add .
-git commit -m "Post-install update for $compname"
-git push origin main
-
+echo ""
+echo "Your public key (copy this and add it to GitHub → Settings → SSH keys):"
+cat ~/.ssh/id_ed25519.pub
