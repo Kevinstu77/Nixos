@@ -18,6 +18,7 @@
   myConfig.audio.enable = true;
   myConfig.KDE.enable = true;
   myConfig.Kernel.enable = false;
+  myConfig.laptop.enable = true;
   myConfig.GpuDrivers = {
     enable = true;
     optimus = {

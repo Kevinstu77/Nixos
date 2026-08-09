@@ -11,6 +11,6 @@ in
     enable = mkEnableOption "...";
   };
 
-  config = mkIf ?.enable {
+  config = mkIf cfg.enable {
 
   }

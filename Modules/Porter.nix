@@ -7,5 +7,6 @@
     ./Services/GpuDrivers.nix
     ./Software/Recording.nix
     ./Services/Kernel.nix
+    ./Service/Laptop.nix
   ];
 }

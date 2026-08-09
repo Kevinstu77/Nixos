@@ -6,13 +6,17 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     agenix.url = "github:ryantm/agenix";
+    auto-cpufreq = {
+      url = "github:AdnanHodzic/auto-cpufreq";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nix-flatpak, nix-cachyos-kernel, disko, agenix, ... }:
+  outputs = { self, nixpkgs, nix-flatpak, nix-cachyos-kernel, disko, agenix, auto-cpufreq, ... }:
   let
     system = "x86_64-linux";
 
