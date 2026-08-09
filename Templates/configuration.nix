@@ -47,6 +47,7 @@
     isNormalUser = true;
     description = "Colby Stults";
     initialPassword = "tempPassVar";
+     #hashedPasswordFile = config.age.secrets.colbys-password.path;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     ];

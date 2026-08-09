@@ -46,7 +46,7 @@
   users.users."colbys" = {
     isNormalUser = true;
     description = "Colby Stults";
-    initialPassword = "4850";
+    hashedPasswordFile = config.age.secrets.colbys-password.path;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     ];
@@ -70,7 +70,7 @@
   ];
 
   #secret
-  #age.secrets.colbys-password.file = ../../secrets/colbys-password.age;
+  age.secrets.colbys-password.file = ../../secrets/colbys-password.age;
 
   system.stateVersion = "26.05";
 
