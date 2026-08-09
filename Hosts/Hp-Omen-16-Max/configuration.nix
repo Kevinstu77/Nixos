@@ -18,7 +18,7 @@
   myConfig.KDE.enable = true;
   myConfig.Kernel.enable = false;
   myConfig.GpuDrivers = {
-    enable = false;
+    enable = true;
     optimus = {
       enable = false;
       nvidiaBusId = "PCI:1@0:0:0";
@@ -43,6 +43,7 @@
   services.printing.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.mutableUsers = false;
   users.users."colbys" = {
     isNormalUser = true;
     description = "Colby Stults";
@@ -66,7 +67,7 @@
     git
     pkgs.mission-center
     s-tui
-    gh
+    fastfetch
   ];
 
   #secret

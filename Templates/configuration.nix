@@ -43,6 +43,7 @@
   services.printing.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.mutableUsers = false;
   users.users."userNameVar" = {
     isNormalUser = true;
     description = "Colby Stults";
@@ -67,7 +68,7 @@
     git
     pkgs.mission-center
     s-tui
-    gh
+    fastfetch
   ];
 
   #secret

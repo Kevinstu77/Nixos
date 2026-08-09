@@ -15,3 +15,8 @@ fi
 echo ""
 echo "Your public key (copy this and add it to GitHub → Settings → SSH keys):"
 cat ~/.ssh/id_ed25519.pub
+
+#password
+nix-shell -p mkpasswd --run 'mkpasswd -m yescrypt'
+cd ~/Nixproject/secrets
+nix run github:ryantm/agenix -- -e colbys-password.age
