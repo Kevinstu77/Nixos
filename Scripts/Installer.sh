@@ -8,11 +8,16 @@ lsblk
 echo "What is the name of your storage device?"
 read -r storage
 
+echo "How much ram does the computer have? (GB)"
+read -r ram
+swap_gb=$((ram + 2))
+
 echo "What is the computer's name?"
 read -r compname
 
 echo "What is your user name?"
 read -r username
+
 
 echo "What will your temp password be?"
 read -r tempass
@@ -32,6 +37,7 @@ read -p "Type 'yes' to continue: " confirm
 [ "$confirm" = "yes" ] || { echo "Aborted."; exit 1; }
 
 sed -i "s/replace this/$storage/g" "$TMP_DIR/utils/disk-config.nix"
+sed -i "s/swapSizeVar/${swap_gb}G/g" "$TMP_DIR/utils/disk-config.nix"
 echo "disk is being partitioned..."
 sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko "$TMP_DIR/utils/disk-config.nix"
 sudo mkdir -p "/mnt/home/$username"
@@ -40,7 +46,8 @@ nix-shell -p git --run "git clone https://github.com/Kevinstu77/Nixos.git $TARGE
 
 #Host folder
 echo "generating entrey in host folder..."
-sudo mkdir -p "$TARGET_DIR/Hosts/$compname/"
+mkdir -p "$TARGET_DIR/Hosts/$compname/"
+cp "$TMP_DIR/utils/disk-config.nix" "$TARGET_DIR/Hosts/$compname/disk-config.nix"
 
 #hardware config
 echo "generating hardware config..."

@@ -51,7 +51,7 @@
                     mountpoint = "/.swapvol";
                     mountOptions = ["noatime" "nodatacow" "nodatasum"];
                     swap = {
-                      swapfile.size = "16G";
+                      swapfile.size = "swapSizeVar";
                     };
                   };
 
