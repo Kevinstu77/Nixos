@@ -5,6 +5,7 @@
     [
       ./hardware-configuration.nix
       ../../Modules/Porter.nix
+      ./disk-config.nix
     ];
 
   #activate toggles
@@ -20,9 +21,9 @@
   myConfig.GpuDrivers = {
     enable = true;
     optimus = {
-      enable = false;
-      nvidiaBusId = "PCI:1@0:0:0";
-      amdgpuBusId = "PCI:115@0:0:0";
+      enable = true;
+      nvidiaBusId = "PCI:2@0:0:0";
+      intelBusId = "PCI:0@0:2:0";
     };
   };
 

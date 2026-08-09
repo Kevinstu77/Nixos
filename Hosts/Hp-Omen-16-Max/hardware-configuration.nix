@@ -13,37 +13,6 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/71ece5d1-9cad-4e79-b138-3b26200e889c";
-      fsType = "btrfs";
-      options = [ "subvol=rootfs" ];
-    };
-
-  fileSystems."/.swapvol" =
-    { device = "/dev/disk/by-uuid/71ece5d1-9cad-4e79-b138-3b26200e889c";
-      fsType = "btrfs";
-      options = [ "subvol=swap" ];
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/DFFC-B910";
-      fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
-    };
-
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/71ece5d1-9cad-4e79-b138-3b26200e889c";
-      fsType = "btrfs";
-      options = [ "subvol=home" ];
-    };
-
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/71ece5d1-9cad-4e79-b138-3b26200e889c";
-      fsType = "btrfs";
-      options = [ "subvol=nix" ];
-    };
-
-  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.npu.enable = true;

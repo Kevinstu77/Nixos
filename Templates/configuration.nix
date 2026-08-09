@@ -5,6 +5,7 @@
     [
       ./hardware-configuration.nix
       ../../Modules/Porter.nix
+      ./disk-config.nix
     ];
 
   #activate toggles

@@ -49,7 +49,7 @@
                   #Swap
                   "/swap" = {
                     mountpoint = "/.swapvol";
-                    mountOptions = ["noatime" "nodatacow" "nodatasum"];
+                    mountOptions = ["noatime"];
                     swap = {
                       swapfile.size = "34G";
                     };
