@@ -6,6 +6,7 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     agenix.url = "github:ryantm/agenix";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
